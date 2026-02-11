@@ -9,6 +9,7 @@ import OnboardingPage from "@/pages/onboarding";
 import DashboardPage from "@/pages/dashboard";
 import NudgeSettingsPage from "@/pages/nudge-settings";
 import DietaryPreferencesPage from "@/pages/dietary-preferences";
+import MobileAppPage from "@/pages/mobile-app";
 import NotFound from "@/pages/not-found";
 
 function AuthenticatedRouter() {
@@ -19,6 +20,7 @@ function AuthenticatedRouter() {
       <Route path="/dashboard" component={DashboardPage} />
       <Route path="/settings" component={NudgeSettingsPage} />
       <Route path="/dietary" component={DietaryPreferencesPage} />
+      <Route path="/app" component={MobileAppPage} />
       <Route component={NotFound} />
     </Switch>
   );
@@ -28,6 +30,7 @@ function UnauthenticatedRouter() {
   return (
     <Switch>
       <Route path="/" component={AuthPage} />
+      <Route path="/app" component={MobileAppPage} />
       <Route component={() => <Redirect to="/" />} />
     </Switch>
   );

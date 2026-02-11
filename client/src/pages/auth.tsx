@@ -4,9 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useLocation } from "wouter";
 import { useAuth } from "@/hooks/use-auth";
 
 export default function AuthPage() {
+  const [, navigate] = useLocation();
   const { register, login, loading, error } = useAuth();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -116,6 +118,15 @@ export default function AuthPage() {
             </TabsContent>
           </Tabs>
         </Card>
+
+        <div className="text-center mt-4">
+          <button
+            className="text-sm text-emerald-600 hover:text-emerald-700 underline"
+            onClick={() => navigate("/app")}
+          >
+            Download the mobile &amp; watch apps
+          </button>
+        </div>
       </div>
     </div>
   );
